@@ -2,22 +2,20 @@
 
 This is a quick and dirty web server that can be used to respond to web requests from the letsencrypt server
 
-## Setup
+## Setup - all commands run on the remote server
 
-### Install certbot
 
 ```
-sudo apt-get update
-sudo apt-get install software-properties-common
-sudo add-apt-repository ppa:certbot/certbot
-sudo apt-get update
-sudo apt-get install python-certbot-nginx 
+ssh ubuntu@1.2.3.4
+git clone https://github.com/mikkelking/getssl.git
+cd getssl
+npm install
+sudo ./certbot.install.sh
 ```
 
 *Start the web server*
 
 ```
-npm install
 sudo nodejs index.js
 ```
 
@@ -26,5 +24,6 @@ sudo nodejs index.js
 From another shell 
 
 ```
+sudo certbot certonly -w ./public
 
 ```
